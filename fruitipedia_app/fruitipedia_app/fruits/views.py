@@ -27,5 +27,3 @@ def delete_fruit(request, pk):
 
 def create_category(request):
     return render(request, 'categories/create-category.html')
-
-#test
