@@ -1,7 +1,7 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
 
-from fruitipedia_app.fruits.validators import check_name_letters
+from fruitipedia_app.fruits.validators import OnlyLettersValidator
 
 
 class Category(models.Model):
@@ -18,7 +18,7 @@ class Fruit(models.Model):
         max_length=30,
         validators=[
             MinLengthValidator(2),
-            check_name_letters
+            OnlyLettersValidator()
         ]
     )
 
@@ -35,4 +35,10 @@ class Fruit(models.Model):
     nutrition = models.TextField(
         null=True,
         blank=True
+    )
+
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        null=True
     )
