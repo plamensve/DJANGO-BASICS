@@ -52,3 +52,5 @@ def create_category(request):
         'form': form
     }
     return render(request, 'categories/create-category.html', context)
+
+#trest
