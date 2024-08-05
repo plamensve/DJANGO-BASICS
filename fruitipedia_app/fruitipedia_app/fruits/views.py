@@ -28,7 +28,13 @@ class CreateFruitView(CreateView):
 
 
 def details_fruit(request, pk):
-    return render(request, 'fruits/details-fruit.html')
+    fruit = Fruit.objects.filter(pk=pk).get()
+
+    context = {
+        'fruit': fruit,
+    }
+
+    return render(request, 'fruits/details-fruit.html', context)
 
 
 def edit_fruit(request, pk):
