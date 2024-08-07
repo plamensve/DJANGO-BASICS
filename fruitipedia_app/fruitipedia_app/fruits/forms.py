@@ -18,6 +18,7 @@ class CategoryBaseForm(forms.ModelForm):
 class CategoryAddForm(CategoryBaseForm):
     pass
 
+
 class BaseFruitForm(forms.ModelForm):
     class Meta:
         model = Fruit
@@ -34,19 +35,10 @@ class BaseFruitForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].label = ''
 
+
 class AddFruitForm(BaseFruitForm):
     pass
 
-# .
 
-
-
-
-
-
-
-
-
-
-
-
+class FruitEditForm(BaseFruitForm):
+    pass
