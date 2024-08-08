@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from fruitipedia_app.fruits.forms import CategoryAddForm, AddFruitForm, FruitEditForm
+from fruitipedia_app.fruits.forms import CategoryAddForm, AddFruitForm, FruitEditForm, FruitDeleteForm
 from fruitipedia_app.fruits.models import Fruit
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -57,7 +57,24 @@ def edit_fruit(request, pk):
 
 
 def delete_fruit(request, pk):
-    return render(request, 'fruits/delete-fruit.html')
+    fruit = Fruit.objects.filter(pk=pk).get()
+
+    if request.method == 'GET':
+        form = FruitDeleteForm(instance=fruit)
+    else:
+        form = FruitDeleteForm(request.POST, instance=fruit)
+
+        if form.is_valid():
+            fruit.delete()
+
+            return redirect('dashboard')
+
+    context = {
+        'form': form,
+        'fruit': fruit
+    }
+
+    return render(request, 'fruits/delete-fruit.html', context)
 
 
 def create_category(request):
@@ -73,5 +90,3 @@ def create_category(request):
         'form': form
     }
     return render(request, 'categories/create-category.html', context)
-
-#trest
