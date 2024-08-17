@@ -6,8 +6,12 @@
 </head>
 <body>
     <h1>DJANGO BASICS - URLS AND VIEWS</h1>
-    {% for u in result %}
-        <h1>{{ u }}</h1>
-    {% endfor %}
+    {% if result %}
+        {% for u in result %}
+            <h1>{{ u }}</h1>
+        {% endfor %}
+    {% else %}
+        <h1>No Info</h1>    
+    {% endif %}
 </body>
 </html>
