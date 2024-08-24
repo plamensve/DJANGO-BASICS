@@ -1,11 +1,11 @@
-from django.core.validators import MinLengthValidator
+from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 
 from my_music_app.users.validators import username_chars_check
 
 
 class Profile(models.Model):
-    AGE_MIN_LENGTH = 0
+    MIN_AGE = 0
     USER_NAME_MIN_LENGTH = 0
     USER_NAME_MAX_LENGTH = 15
 
@@ -20,5 +20,5 @@ class Profile(models.Model):
     )
 
     age = models.IntegerField(
-        validators=[MinLengthValidator(AGE_MIN_LENGTH)]
+        validators=[MinValueValidator(MIN_AGE)]
     )
