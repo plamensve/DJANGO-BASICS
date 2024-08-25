@@ -5,11 +5,10 @@
           <div class="profileText">
             <!-- Delete Profile Form -->
             <h1>Are you sure you want to delete your profile?</h1>
-            <form>
-              <!-- Confirm Button -->
+            <form action="{% url 'profile-delete' %}" method="POST">
+                {% csrf_token %}
               <button class="delete-profile" type="submit">Delete</button>
             </form>
-            <!-- End Delete Profile Form -->
           </div>
         </div>
       </section>

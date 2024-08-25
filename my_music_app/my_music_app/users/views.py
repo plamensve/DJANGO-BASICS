@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+
 from my_music_app.users.models import Profile
 
 
@@ -15,4 +17,13 @@ def profile_details(request):
 
 
 def profile_delete(request):
+    profile = Profile.objects.first()
+
+    if request.method == 'POST':
+        profile.delete()
+
+        return redirect('index')
+
     return render(request, 'profile-delete.html')
+
+

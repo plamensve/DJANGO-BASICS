@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block main_content %}
       <section id="detailsPage">
         <div class="wrapper">
           <div class="profilePage">
             <img
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              src="{% static 'images/profil_picture.jpg' %}"
               alt="Profile Image"
             />
           </div>
@@ -19,7 +20,7 @@
 
           <div class="actionBtn">
             <!-- Button for Deleting the Profile -->
-            <a href="#" class="remove">Delete</a>
+            <a href="{% url 'profile-delete' %}" class="remove">Delete</a>
           </div>
         </div>
       </section>
