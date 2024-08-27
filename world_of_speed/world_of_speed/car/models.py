@@ -42,7 +42,6 @@ class Car(models.Model):
         ]
     )
 
-    # TODO: Should be add placeholder in the form "https://..."
     image_url = models.URLField(
         unique=True,
         error_messages={
