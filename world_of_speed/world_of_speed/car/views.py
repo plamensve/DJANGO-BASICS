@@ -46,8 +46,36 @@ def car_details(request, pk):
 
 
 def car_edit(request, pk):
-    return render(request, 'car-edit.html')
+    car = Car.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        form = CreateCarForm(request.POST, instance=car)
+        if form.is_valid():
+            form.save()
+            return redirect('catalogue')
+    else:
+        form = CreateCarForm(instance=car)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'car-edit.html', context)
 
 
 def car_delete(request, pk):
-    return render(request, 'car-delete.html')
+    car = Car.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        form = CreateCarForm(request.POST, instance=car)
+        if form.is_valid():
+            car.delete()
+            return redirect('catalogue')
+    else:
+        form = CreateCarForm(instance=car)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'car-delete.html', context)

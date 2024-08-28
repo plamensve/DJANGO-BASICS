@@ -24,8 +24,8 @@
 
           <!-- Edit/Delete buttons -->
           <div class="buttons">
-            <a href="#" class="edit-button">Edit</a>
-            <a href="#" class="delete-button">Delete</a>
+            <a href="{% url 'car-edit' pk=car.pk %}" class="edit-button">Edit</a>
+            <a href="{% url 'car-delete' pk=car.pk %}" class="delete-button">Delete</a>
           </div>
         </div>
       </section>

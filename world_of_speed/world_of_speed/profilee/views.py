@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 
+from world_of_speed.car.models import Car
 from world_of_speed.profilee.forms import CreateProfileForm
+from world_of_speed.profilee.models import Profile
 
 
 def profile_create(request):
@@ -19,7 +21,19 @@ def profile_create(request):
 
 
 def profile_details(request):
-    return render(request, 'profile-details.html')
+    profile = Profile.objects.first()
+    cars = Car.objects.all()
+    total_price = 0
+
+    for car in cars:
+        total_price += car.price
+
+    context = {
+        'profile': profile,
+        'total_price': f"{total_price:.3f}"
+    }
+
+    return render(request, 'profile-details.html', context)
 
 
 def profile_edit(request):
