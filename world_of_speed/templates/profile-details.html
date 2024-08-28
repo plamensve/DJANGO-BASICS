@@ -29,8 +29,8 @@
             <p class="description">Total price: {{ total_price }}</p>
             <!-- Edit/Delete buttons -->
             <div class="buttons">
-              <a href="#" class="edit-button">Edit</a>
-              <a href="#" class="delete-button">Delete</a>
+              <a href="{% url 'profile-edit' %}" class="edit-button">Edit</a>
+              <a href="{% url 'profile-delete' %}" class="delete-button">Delete</a>
             </div>
           </div>
         </div>
