@@ -14,3 +14,5 @@ def profile_context_processor(request):
     profile = Profile.objects.first()
 
     return {'profile': profile}
+
+#test
