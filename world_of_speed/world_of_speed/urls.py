@@ -1,5 +1,6 @@
 
 from django.contrib import admin
+from django.contrib.auth.views import LoginView
 from django.urls import path, include
 
 from world_of_speed.car.views import catalogue
@@ -9,5 +10,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('world_of_speed.web.urls')),
     path('car/', include('world_of_speed.car.urls')),
-    path('profile/', include('world_of_speed.profilee.urls'))
+    path('profile/', include('world_of_speed.profilee.urls')),
+
 ]

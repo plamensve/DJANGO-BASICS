@@ -15,7 +15,9 @@ SECRET_KEY = 'django-insecure-%v3*p0+s$*quhumepqs98*^svy9zl%myn9y_d+hj%#018oj^9x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0850-88-87-18-207.ngrok-free.app'
+]
 
 
 # Application definition
@@ -31,7 +33,7 @@ INSTALLED_APPS = [
     # Project applications
     'world_of_speed.web',
     'world_of_speed.car',
-    'world_of_speed.profilee'
+    'world_of_speed.profilee',
 ]
 
 MIDDLEWARE = [
