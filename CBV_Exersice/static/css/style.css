@@ -1,0 +1,58 @@
+/* Общи настройки за цялата форма */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Стилизация за всички елементи на формата */
+form input[type="text"],
+form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Стилизация за етикетите на полетата */
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+/* Стилизация за бутона за изпращане */
+form button[type="submit"] {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* При минаване на курсора над бутона */
+form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Стилизация за грешки във формата */
+form .errorlist {
+    color: #ff0000;
+    margin-bottom: 15px;
+    list-style-type: none;
+}
+
+/* Стилизация за грешни полета */
+form .field_with_errors {
+    border-color: #ff0000;
+}
