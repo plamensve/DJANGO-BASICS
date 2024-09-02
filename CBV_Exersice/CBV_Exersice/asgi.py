@@ -1,5 +1,5 @@
 """
-ASGI config for CBV_Excersice project.
+ASGI config for CBV_Exersice project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CBV_Excersice.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CBV_Exersice.settings')
 
 application = get_asgi_application()
