@@ -1,7 +1,7 @@
 from django.urls import path
 
-from web.views import index
+from web.views import ToDoCreateForm
 
 urlpatterns = (
-    path('', index, name='index'),
+    path('', ToDoCreateForm.as_view(), name='index'),
 )
