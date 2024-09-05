@@ -32,3 +32,6 @@ class TruckRoots(models.Model):
         null=False,
         blank=False
     )
+
+
+#test
