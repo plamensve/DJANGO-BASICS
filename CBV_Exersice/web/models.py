@@ -34,4 +34,4 @@ class TruckRoots(models.Model):
     )
 
 
-#test
+#testтест
