@@ -1,3 +1,6 @@
-from django.test import TestCase
+my_tuple = (3, 5, 7)
 
-# Create your tests here.
+my_list = [3, 5, 7]
+
+for x in my_list:
+    print(x)
