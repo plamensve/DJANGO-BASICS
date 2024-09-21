@@ -21,7 +21,7 @@
                     <h2>{{ post.title|capfirst }}</h2>
 
                     {% if not post.content %}
-                        {% lorem 3 p %}
+                        {% lorem 1 p %}
                     {% else %}
                         {{ post.content }}
                     {% endif %}

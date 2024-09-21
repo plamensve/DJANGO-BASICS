@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from forumApp.posts.models import Posts
+
 
 # Create your views here.
 def index(request):
@@ -8,7 +10,13 @@ def index(request):
 
 
 def dashboard(request):
-    return render(request, 'posts/bashboard.html')
+    posts = Posts.objects.all()
+
+    context = {
+        'posts': posts
+    }
+
+    return render(request, 'posts/dashboard.html', context)
 
 
 def games(request):
@@ -29,3 +37,5 @@ def settings(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
+#TEST
