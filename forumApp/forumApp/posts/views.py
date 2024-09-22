@@ -38,4 +38,4 @@ def settings(request):
 def profile(request):
     return render(request, 'profile.html')
 
-#TEST
+#TESTtest
