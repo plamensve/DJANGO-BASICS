@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Patterns</title>
+</head>
+<body>
+    <h1>Изберете криптовалута</h1>
+    <select id="crypto-select">
+        <!-- Опциите ще се заредят динамично -->
+    </select>
+    <div id="patterns-output">
+        <!-- Трейдинг фигурите ще се покажат тук -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/cryptos')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('crypto-select');
+                    data.cryptos.forEach(crypto => {
+                        const option = document.createElement('option');
+                        option.value = crypto.id;
+                        option.textContent = crypto.name;
+                        select.appendChild(option);
+                    });
+                });
+
+            document.getElementById('crypto-select').addEventListener('change', (event) => {
+                const cryptoId = event.target.value;
+                fetch(`/api/patterns/${cryptoId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const output = document.getElementById('patterns-output');
+                        output.innerHTML = '';
+                        data.patterns.forEach(pattern => {
+                            const patternDiv = document.createElement('div');
+                            patternDiv.textContent = pattern.name;
+                            output.appendChild(patternDiv);
+                        });
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
