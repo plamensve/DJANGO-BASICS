@@ -17,3 +17,9 @@ class Posts(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True
     )
+
+
+class PersonInfor(models.Model):
+    first_name = models.CharField()
+    second_name = models.CharField()
+    age = models.IntegerField()

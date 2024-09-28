@@ -1,3 +1,4 @@
-from django.test import TestCase
+import os
 
-# Create your tests here.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'forumApp.settings')
+

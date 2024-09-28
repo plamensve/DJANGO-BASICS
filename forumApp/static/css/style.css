@@ -1,2 +1,51 @@
 @import "posts.css";
 @import "nav.css";
+
+.forms{
+    width: 400px; /* Ширината на формата */
+    margin: 0 auto; /* Центриране на формата на страницата */
+    padding: 20px; /* Вътрешно разстояние */
+    background-color: #f9f9f9; /* Светъл фон */
+    border: 1px solid #ddd; /* Лека рамка около формата */
+    border-radius: 10px; /* Заобляне на ъглите */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Леки сенки за по-изчистен вид */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form textarea,
+form select {
+    width: 100%; /* Ширина на полетата */
+    padding: 10px; /* Вътрешно разстояние */
+    margin-bottom: 15px; /* Разстояние между полетата */
+    border: 1px solid #ccc; /* Рамка на полетата */
+    border-radius: 5px; /* Заобляне на ъглите на полетата */
+    font-size: 16px; /* Размер на шрифта */
+    font-family: Arial, sans-serif; /* Шрифт */
+    box-sizing: border-box; /* За да не нарушава оформлението */
+}
+
+input#age {
+    width: 100%; /* Ширина на полето */
+    padding: 10px; /* Вътрешно разстояние */
+    margin-bottom: 15px; /* Разстояние под полето */
+    border: 1px solid #ccc; /* Рамка на полето */
+    border-radius: 5px; /* Заоблени ъгли */
+    font-size: 16px; /* Размер на шрифта */
+    box-sizing: border-box; /* За да не нарушава оформлението */
+}
+
+
+
+body > div > form > button{
+    background-color: #007bff; /* Цвят на фона */
+    color: white; /* Цвят на текста */
+    padding: 10px 20px; /* Вътрешно разстояние на бутоните */
+    border: none; /* Премахване на рамката */
+    border-radius: 5px; /* Заобляне на ъглите на бутоните */
+    cursor: pointer; /* Показване на ръчичка при задържане над бутона */
+    font-size: 16px; /* Размер на шрифта */
+    transition: background-color 0.3s ease; /* Преход при задържане над бутона */
+}
