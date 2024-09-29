@@ -1,24 +1,21 @@
 from django.shortcuts import render, redirect
 
-from forumApp.posts.forms import BaseForm
-from forumApp.posts.models import Posts, PersonInfor
+from forumApp.posts.forms import BaseForm, StudentForm
+from forumApp.posts.models import Posts, PersonInfor, StudentWithChoices
 
 
 # Create your views here.
 def index(request):
     form = BaseForm(request.POST or None)
+    s_form = StudentForm(request.POST or None)  # Използвай StudentForm вместо модела StudentWithChoices
 
     context = {
-        'form': form
+        'form': form,
+        's_form': s_form
     }
 
-    if request.method == 'POST' and form.is_valid():
-        first_name = form.cleaned_data['first_name']
-        second_name = form.cleaned_data['second_name']
-        age = form.cleaned_data['age']
-
-        person = PersonInfor(first_name=first_name, second_name=second_name, age=age)
-        person.save()
+    if request.method == 'POST' and s_form.is_valid():
+        s_form.save()
 
     return render(request, 'base.html', context)
 
@@ -51,5 +48,3 @@ def settings(request):
 
 def profile(request):
     return render(request, 'profile.html')
-
-
