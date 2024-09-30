@@ -1,23 +1,30 @@
 from django.shortcuts import render, redirect
 
-from forumApp.posts.forms import BaseForm, StudentForm
-from forumApp.posts.models import Posts, PersonInfor, StudentWithChoices
+from forumApp.posts.forms import BaseForm, PostsForm
+from forumApp.posts.models import Posts
 
 
 # Create your views here.
 def index(request):
-    form = BaseForm(request.POST or None)
-    s_form = StudentForm(request.POST or None)  # Използвай StudentForm вместо модела StudentWithChoices
+    added_post = PostsForm(request.POST or None)
 
     context = {
-        'form': form,
-        's_form': s_form
+        'form': added_post,
     }
 
-    if request.method == 'POST' and s_form.is_valid():
-        s_form.save()
+    if request.method == 'POST' and added_post.is_valid():
+        added_post.save()
+        return redirect('dashboard')
 
     return render(request, 'base.html', context)
+
+
+def edit_post(request):
+    pass
+
+
+def delete_post(request):
+    pass
 
 
 def dashboard(request):

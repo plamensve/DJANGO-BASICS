@@ -14,22 +14,13 @@
 <body>
     {% include 'nav.html' %}
     <h1>Hello User How Are You?</h1>
-{#    <div class="forms">#}
-{#        <form action="{% url 'index' %}" method="POST">#}
-{#        {% csrf_token %}#}
-{#        {{ form }}#}
-{#        <button>Submit</button>#}
-{#    </form>#}
-{#    </div>#}
-    <br><br>
     <div class="forms">
         <form action="{% url 'index' %}" method="POST">
-            {% csrf_token %}
-            {{ s_form }}
-            <button>Submit</button>
-        </form>
+        {% csrf_token %}
+        {{ form }}
+        <button>Submit</button>
+    </form>
     </div>
-
 </body>
     <script src='https://unpkg.com/akar-icons-fonts'></script>
 </html>
