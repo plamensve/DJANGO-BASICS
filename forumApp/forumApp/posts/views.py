@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from forumApp.posts.forms import BaseForm, PostsForm
 from forumApp.posts.models import Posts
@@ -19,12 +19,26 @@ def index(request):
     return render(request, 'base.html', context)
 
 
-def edit_post(request):
-    pass
+def edit_post(request, pk):
+    post = get_object_or_404(Posts, id=pk)
+
+    if request.method == 'POST':
+        edit_form = PostsForm(request.POST, instance=post)
+        if edit_form.is_valid():
+            print(edit_form.author)
+    else:
+        edit_form = PostsForm(instance=post)
+
+    context = {
+        'edit_form': edit_form
+    }
+    return render(request, 'posts/edit-post.html', context)
 
 
-def delete_post(request):
-    pass
+def delete_post(request, pk):
+    post = get_object_or_404(Posts, id=pk)
+
+    return render(request, 'posts/dashboard.html')
 
 
 def dashboard(request):

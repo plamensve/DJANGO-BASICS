@@ -49,3 +49,14 @@ body > div > form > button{
     font-size: 16px; /* Размер на шрифта */
     transition: background-color 0.3s ease; /* Преход при задържане над бутона */
 }
+
+body > div > div > form > button{
+    background-color: #007bff; /* Цвят на фона */
+    color: white; /* Цвят на текста */
+    padding: 10px 20px; /* Вътрешно разстояние на бутоните */
+    border: none; /* Премахване на рамката */
+    border-radius: 5px; /* Заобляне на ъглите на бутоните */
+    cursor: pointer; /* Показване на ръчичка при задържане над бутона */
+    font-size: 16px; /* Размер на шрифта */
+    transition: background-color 0.3s ease;
+}

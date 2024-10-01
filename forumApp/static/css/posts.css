@@ -30,10 +30,14 @@ h1 {
 }
 
 .post {
+    position: relative; /* За да позиционираме бутоните вътре в този контейнер */
     padding: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden
 }
 
 .post h2 {
@@ -51,4 +55,28 @@ h1 {
     justify-content: end;
     font-size: 0.9em;
     color: #999;
+}
+
+/* Стилизиране на бутоните в горния десен ъгъл */
+.svg-buttons {
+    position: absolute;
+    top: 10px; /* Отстояние от горния край на публикацията */
+    right: 10px; /* Отстояние от десния край на публикацията */
+    display: flex;
+    gap: 10px; /* Разстояние между бутоните */
+}
+
+.svg-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.svg-buttons button:hover img {
+    opacity: 0.7; /* Ефект при ховър */
+}
+
+.svg-buttons img {
+    width: 16px;
+    height: 16px;
 }

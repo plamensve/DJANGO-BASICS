@@ -27,15 +27,24 @@
                     {% endif %}
 
                     <div class="post-meta">
-                        <span>Posted by {{ post.author|default:"anonymous" }} on {{ post.created_at|date:"d-M-Y" }}</span>
+                        <span>
+                            Posted by {{ post.author|default:"anonymous" }} on {{ post.created_at|date:"d-M-Y" }}
+                        </span>
+                    </div>
+                    <div class="svg-buttons">
+                        <button onclick="window.location.href='{% url 'edit_post' post.pk %}'">
+                            <img src="{% static 'images/edit.svg' %}" width="16" height="16" alt="Icon" />
+                        </button>
+                        <button onclick="window.location.href='{% url 'delete_post' post.pk %}'">
+                            <img src="{% static 'images/bin.svg' %}" width="16" height="16" alt="Icon" />
+                        </button>
                     </div>
                 </div>
             {% empty %}
                 <h1>No Posts</h1>
             {% endfor %}
+            </div>
         </div>
-    </div>
-
 </body>
     <script src='https://unpkg.com/akar-icons-fonts'></script>
 </html>

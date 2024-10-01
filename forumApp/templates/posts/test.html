@@ -1,0 +1,18 @@
+<body>
+    {% include 'nav.html' %}
+<div class="container">
+    <div class="posts">
+    <h1>
+        Edit Post
+    </h1>
+    <form method="post">
+            {% csrf_token %}
+            {{ edit_form.as_p }}
+        <button type="submit">
+            Save changes
+        </button>
+    </form>
+    </div>
+</div>
+</body>
+    <script src='https://unpkg.com/akar-icons-fonts'></script>
