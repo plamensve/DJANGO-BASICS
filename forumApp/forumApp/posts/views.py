@@ -25,7 +25,8 @@ def edit_post(request, pk):
     if request.method == 'POST':
         edit_form = PostsForm(request.POST, instance=post)
         if edit_form.is_valid():
-            print(edit_form.author)
+            edit_form.save()
+            return redirect('dashboard')
     else:
         edit_form = PostsForm(instance=post)
 
@@ -37,8 +38,16 @@ def edit_post(request, pk):
 
 def delete_post(request, pk):
     post = get_object_or_404(Posts, id=pk)
+    post.delete()
+    return redirect('dashboard')
 
-    return render(request, 'posts/dashboard.html')
+
+def delete_page(request, pk):
+    post = get_object_or_404(Posts, pk=pk)
+    context = {
+        'post': post
+    }
+    return render(request, 'posts/delete-page.html', context)
 
 
 def dashboard(request):
