@@ -1,7 +1,7 @@
 from django.urls import path
 
-from forumApp.posts.views import index, dashboard, games, books, notifications, settings, profile, edit_post, \
-    delete_post, delete_page
+from forumApp.posts.views import index, dashboard, books, notifications, settings, profile, edit_post, \
+    delete_post, delete_page, add_post
 
 urlpatterns = [
     path('', index, name='index'),
@@ -12,9 +12,7 @@ urlpatterns = [
     path('dashboard/<int:pk>/delete_post', delete_page, name='delete_page'),
 
 
-
-
-    path('games/', games, name='games'),
+    path('add_post/', add_post, name='add-post'),
     path('books/', books, name='books'),
     path('notifications/', notifications, name='notifications'),
     path('settings/', settings, name='settings'),

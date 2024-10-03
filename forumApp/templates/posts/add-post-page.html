@@ -13,7 +13,14 @@
 </head>
 <body>
     {% include 'nav.html' %}
-    <h1>Hello User How Are You?</h1>
+    <h1>Add your post now</h1>
+    <div class="forms">
+        <form action="{% url 'add-post' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button>Submit</button>
+        </form>
+    </div>
 </body>
     <script src='https://unpkg.com/akar-icons-fonts'></script>
 </html>

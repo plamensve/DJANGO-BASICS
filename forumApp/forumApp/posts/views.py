@@ -6,17 +6,7 @@ from forumApp.posts.models import Posts
 
 # Create your views here.
 def index(request):
-    added_post = PostsForm(request.POST or None)
-
-    context = {
-        'form': added_post,
-    }
-
-    if request.method == 'POST' and added_post.is_valid():
-        added_post.save()
-        return redirect('dashboard')
-
-    return render(request, 'base.html', context)
+    return render(request, 'base.html')
 
 
 def edit_post(request, pk):
@@ -60,8 +50,18 @@ def dashboard(request):
     return render(request, 'posts/dashboard.html', context)
 
 
-def games(request):
-    return render(request, 'games.html')
+def add_post(request):
+    added_post = PostsForm(request.POST or None)
+
+    context = {
+        'form': added_post,
+    }
+
+    if request.method == 'POST' and added_post.is_valid():
+        added_post.save()
+        return redirect('dashboard')
+
+    return render(request, 'posts/add-post-page.html', context)
 
 
 def books(request):

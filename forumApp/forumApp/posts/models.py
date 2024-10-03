@@ -2,6 +2,18 @@ from django.db import models
 
 
 class Posts(models.Model):
+    TOPIC_CHOICES = (
+        ('PY', 'Python'),
+        ('JS', 'Java Script'),
+        ('C#', 'C Sharp'),
+        ('OTHER', 'Other')
+    )
+
+    topic = models.CharField(
+        choices=TOPIC_CHOICES,
+        default='Other'
+    )
+
     author = models.CharField(
         max_length=100,
         null=True,
