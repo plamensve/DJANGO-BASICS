@@ -32,6 +32,9 @@ class PostsForm(forms.ModelForm):
 
 
 
+class Comments(forms.ModelForm):
+    pass
+
 
 
 
