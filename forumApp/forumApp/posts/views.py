@@ -1,12 +1,21 @@
+import time
+from datetime import datetime
+
 from django.shortcuts import render, redirect, get_object_or_404
 
-from forumApp.posts.forms import BaseForm, PostsForm
+from forumApp.posts.forms import BaseForm, PostsForm, PostDeleteForm
 from forumApp.posts.models import Posts
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'base.html')
+    last_refresh = datetime.now().strftime('%d-%m-%Y <:> %H:%M:%S')
+
+    context = {
+        'last_refresh': last_refresh
+    }
+
+    return render(request, 'base.html', context)
 
 
 def edit_post(request, pk):
@@ -28,14 +37,18 @@ def edit_post(request, pk):
 
 def delete_post(request, pk):
     post = get_object_or_404(Posts, id=pk)
+
     post.delete()
     return redirect('dashboard')
 
 
 def delete_page(request, pk):
     post = get_object_or_404(Posts, pk=pk)
+    del_form = PostDeleteForm(instance=post)
+
     context = {
-        'post': post
+        'post': post,
+        'del_form': del_form
     }
     return render(request, 'posts/delete-page.html', context)
 
@@ -62,6 +75,22 @@ def add_post(request):
         return redirect('dashboard')
 
     return render(request, 'posts/add-post-page.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def books(request):

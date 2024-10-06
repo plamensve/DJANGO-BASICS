@@ -5,7 +5,6 @@ from forumApp.posts.models import Posts
 
 
 class BaseForm(forms.Form):
-
     first_name = forms.CharField(
         max_length=10,
     )
@@ -31,25 +30,9 @@ class PostsForm(forms.ModelForm):
         fields = '__all__'
 
 
+class PostDeleteForm(PostsForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-class Comments(forms.ModelForm):
-    pass
-
-#test
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        for field in self.fields:
+            self.fields[field].disabled = True

@@ -1,5 +1,7 @@
 from django.db import models
 
+from forumApp.posts.validators import BadLanguageValidator
+
 
 class Posts(models.Model):
     TOPIC_CHOICES = (
@@ -24,6 +26,9 @@ class Posts(models.Model):
         max_length=300,
         null=True,
         blank=True,
+        validators=[
+            BadLanguageValidator()
+        ]
     )
 
     created_at = models.DateTimeField(
@@ -31,18 +36,5 @@ class Posts(models.Model):
     )
 
 
-class PersonInfor(models.Model):
-    first_name = models.CharField(
-        max_length=100,  # добавено max_length
-        null=True,
-        blank=True
-    )
-    second_name = models.CharField(
-        max_length=100,  # добавено max_length
-        null=True,
-        blank=True
-    )
-    age = models.IntegerField(
-        null=True,
-        blank=True
-    )
+
+
