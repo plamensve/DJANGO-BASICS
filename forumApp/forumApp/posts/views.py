@@ -1,9 +1,9 @@
-import time
 from datetime import datetime
 
+from django.forms import modelform_factory
 from django.shortcuts import render, redirect, get_object_or_404
 
-from forumApp.posts.forms import BaseForm, PostsForm, PostDeleteForm
+from forumApp.posts.forms import PostsForm, PostDeleteForm
 from forumApp.posts.models import Posts
 
 
@@ -11,8 +11,22 @@ from forumApp.posts.models import Posts
 def index(request):
     last_refresh = datetime.now().strftime('%d-%m-%Y <:> %H:%M:%S')
 
+    full_form = PostsForm(request.POST or None)
+    part_form = modelform_factory(
+        Posts,
+        fields=('topic', 'author',),
+    )
+    mff = part_form(request.POST or None)
+
+    if request.method == 'POST':
+        if mff.is_valid():
+            mff.save()
+            return redirect('dashboard ')
+
     context = {
-        'last_refresh': last_refresh
+        'last_refresh': last_refresh,
+        'full_form': full_form,
+        'mff': mff,
     }
 
     return render(request, 'base.html', context)
@@ -64,33 +78,18 @@ def dashboard(request):
 
 
 def add_post(request):
-    added_post = PostsForm(request.POST or None)
+    added_post = PostsForm(request.POST or None, request.FILES or None)
+
+    if request.method == 'POST':
+        if added_post.is_valid():
+            added_post.save()
+            return redirect('dashboard')
 
     context = {
-        'form': added_post,
+        'post_form': added_post,
     }
 
-    if request.method == 'POST' and added_post.is_valid():
-        added_post.save()
-        return redirect('dashboard')
-
     return render(request, 'posts/add-post-page.html', context)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def books(request):

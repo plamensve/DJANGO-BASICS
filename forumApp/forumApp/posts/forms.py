@@ -1,6 +1,8 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 
+from forumApp.posts.mixins import DisableFieldsMixin
 from forumApp.posts.models import Posts
 
 
@@ -29,10 +31,28 @@ class PostsForm(forms.ModelForm):
         model = Posts
         fields = '__all__'
 
+        labels = {
+            'image': ''
+        }
 
-class PostDeleteForm(PostsForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def clean_author(self):
+        author = self.cleaned_data.get('author')
+        if author[0] != author[0].upper():
+            raise ValidationError('Author should start with capital letter!')
 
-        for field in self.fields:
-            self.fields[field].disabled = True
+        return author
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        name = cleaned_data.get('author')
+        content = cleaned_data.get('content')
+
+        if name and content and name in content:
+            raise ValidationError('The author name cannot be included in content!')
+
+        return cleaned_data
+
+class PostDeleteForm(PostsForm, DisableFieldsMixin):
+    pass
+

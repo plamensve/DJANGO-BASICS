@@ -15,9 +15,10 @@
     {% include 'nav.html' %}
     <h1>Add your post now</h1>
     <div class="forms">
-        <form action="{% url 'add-post' %}" method="POST">
+        <form action="{% url 'add-post' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
+        {{ post_form }}
+            <br>
         <button>Submit</button>
         </form>
     </div>
