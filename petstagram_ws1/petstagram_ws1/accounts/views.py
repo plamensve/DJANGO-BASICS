@@ -13,6 +13,10 @@ def login(request):
 
 
 def profile(request, pk):
+    user = get_object_or_404(UserProfile, pk=pk)
+    context = {
+        'user': user
+    }
 
     return render(request, 'accounts/profile-details-page.html', context)
 
