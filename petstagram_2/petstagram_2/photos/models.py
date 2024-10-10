@@ -11,7 +11,7 @@ class Photo(models.Model):
     MAX_LENGTH_LOCATION = 30
 
     photo = models.ImageField(
-        upload_to='pet_photos/',
+        upload_to='images',
         validators=[
             photo_size_validator,
         ]
@@ -42,16 +42,30 @@ class Photo(models.Model):
     )
 
 
+class Like(models.Model):
+    to_photo = models.ForeignKey(
+        Photo,
+        related_name='like_to_photo',
+        on_delete=models.CASCADE
+    )
 
 
+class Comment(models.Model):
+    TEXT_MAX_LENGTH = 300
 
+    text = models.TextField(
+        max_length=TEXT_MAX_LENGTH
+    )
 
+    date_time_of_publication = models.DateTimeField(
+        auto_now_add=True
+    )
 
+    to_photo = models.ForeignKey(
+        Photo,
+        related_name='comment_to_photo',
+        on_delete=models.CASCADE
+    )
 
-
-
-
-
-
-
-
+    class Meta:
+        ordering = ['-date_time_of_publication']
