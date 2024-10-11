@@ -54,5 +54,5 @@ class PostsForm(forms.ModelForm):
         return cleaned_data
 
 class PostDeleteForm(PostsForm, DisableFieldsMixin):
-    pass
+    passpas
 
