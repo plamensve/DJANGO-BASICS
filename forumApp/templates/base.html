@@ -18,12 +18,13 @@
     {% include 'nav.html' %}
     <h1>Hello User How Are You?</h1>
     <h1 style="color: blueviolet">
-        LAST PAGE REFRESH: {{ last_refresh }}
+        LAST PAGE REFRESH: {{ last_refresh }}<br>
+        Username: {{ user_name }}
     </h1>
     <br>
     <div>
-        <form action="{% url 'index' %}" method="POST" class="forms">
-            {{ mff }}
+        <form action="{% url 'index' %}" method="POST" class="forms" enctype="multipart/form-data">
+            {{ my_form }}<br>
             {% csrf_token %}
             <button>Submit</button>
         </form>

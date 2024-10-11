@@ -1,10 +1,10 @@
 from django.urls import path
 
-from forumApp.posts.views import index, dashboard, books, notifications, settings, profile, edit_post, \
-    delete_post, delete_page, add_post
+from forumApp.posts.views import dashboard, books, notifications, settings, profile, edit_post, \
+    delete_post, delete_page, add_post, Index
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', Index.as_view(), name='index'),
 
     path('dashboard/', dashboard, name='dashboard'),
     path('dashboard/<int:pk>/edit/', edit_post, name='edit_post'),
