@@ -18,8 +18,13 @@ class Index(TemplateView):
         if self.request.user.is_authenticated:
             return ['base.html']
         else:
-            return ['posts/add-post-page.html']
+            return ['base.html']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['dynamic_time'] = datetime.now()
+
+        return context
 
 # class Index(View):
 #     def get(self, request, *args, **kwargs):
@@ -105,6 +110,7 @@ def delete_post(request, pk):
 
     post.delete()
     return redirect('dashboard')
+
 
 
 def delete_page(request, pk):
