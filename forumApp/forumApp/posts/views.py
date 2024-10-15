@@ -1,30 +1,48 @@
+import pprint
 from datetime import datetime
 
+import requests
 from django.contrib.auth.models import User
 from django.forms import modelform_factory
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView, ListView, FormView
 
 from forumApp.posts.forms import PostsForm, PostDeleteForm
 from forumApp.posts.models import Posts
 
 
-class Index(TemplateView):
+# class Index(TemplateView):
+#     template_name = 'base.html'
+#
+#     def get_template_names(self):
+#         return ['base.html']
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['dynamic_time'] = datetime.now()
+#
+#         return context
+
+
+class BaseForm(CreateView):
+    model = Posts
+    fields = '__all__'
     template_name = 'base.html'
+    success_url = reverse_lazy('dashboard')
 
-    def get_template_names(self):
-        if self.request.user.is_authenticated:
-            return ['base.html']
-        else:
-            return ['base.html']
+    def form_valid(self, form):
+        # Принтирайте данните от заявката в конзолата (или лога на сървъра)
+        pprint.pprint(self.request.POST)  # Принтира POST данните от заявката
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['dynamic_time'] = datetime.now()
+        # Може да видите и всички headers на заявката
+        pprint.pprint(self.request.headers)
 
-        return context
+        return super().form_valid(form)
+
+
 
 # class Index(View):
 #     def get(self, request, *args, **kwargs):
@@ -112,7 +130,6 @@ def delete_post(request, pk):
     return redirect('dashboard')
 
 
-
 def delete_page(request, pk):
     post = get_object_or_404(Posts, pk=pk)
     del_form = PostDeleteForm(instance=post)
@@ -124,14 +141,21 @@ def delete_page(request, pk):
     return render(request, 'posts/delete-page.html', context)
 
 
-def dashboard(request):
-    posts = Posts.objects.all()
+class DashboardView(ListView):
+    model = Posts
+    template_name = 'posts/dashboard.html'
+    context_object_name = 'posts'
 
-    context = {
-        'posts': posts
-    }
 
-    return render(request, 'posts/dashboard.html', context)
+
+# def dashboard(request):
+#     posts = Posts.objects.all()
+#
+#     context = {
+#         'posts': posts
+#     }
+#
+#     return render(request, 'posts/dashboard.html', context)
 
 
 def add_post(request):

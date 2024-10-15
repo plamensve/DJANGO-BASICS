@@ -25,7 +25,7 @@
     <br>
     <div>
         <form action="{% url 'index' %}" method="POST" class="forms" enctype="multipart/form-data">
-            {{ my_form }}<br>
+            {{ form.as_p }}<br>
             {% csrf_token %}
             <button>Submit</button>
         </form>

@@ -1,12 +1,13 @@
 from django.urls import path
 
-from forumApp.posts.views import dashboard, books, notifications, settings, profile, edit_post, \
-    delete_post, delete_page, add_post, Index
+from forumApp.posts.views import books, notifications, settings, profile, edit_post, \
+    delete_post, delete_page, add_post, BaseForm, DashboardView
 
 urlpatterns = [
-    path('', Index.as_view(), name='index'),
+    # path('', Index.as_view(), name='index'),
+    path('', BaseForm.as_view(), name='index'),
 
-    path('dashboard/', dashboard, name='dashboard'),
+    path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('dashboard/<int:pk>/edit/', edit_post, name='edit_post'),
     path('dashboard/<int:pk>/delete/', delete_post, name='delete_post'),
     path('dashboard/<int:pk>/delete_post', delete_page, name='delete_page'),
