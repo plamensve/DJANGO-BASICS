@@ -19,3 +19,5 @@ urlpatterns = [
     path('settings/', settings, name='settings'),
     path('profile/', profile, name='profile')
 ]
+
+#test
