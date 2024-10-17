@@ -20,4 +20,3 @@ urlpatterns = [
     path('profile/', profile, name='profile')
 ]
 
-#test
