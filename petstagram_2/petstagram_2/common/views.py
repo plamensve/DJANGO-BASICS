@@ -7,6 +7,7 @@ from petstagram_2.photos.models import Photo
 
 
 def home_page(request):
+    print('home-page')
     all_photos = Photo.objects.all()
     comment_form = CommentForm()
 
