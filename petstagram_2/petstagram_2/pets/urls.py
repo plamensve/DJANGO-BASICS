@@ -3,8 +3,8 @@ from petstagram_2.pets import views
 
 urlpatterns = (
     path('add/', views.PetAddPage.as_view(), name='pet-add-page'),
-    path('<str:username>/pet/<slug:pet_slug>/', views.pet_details_page, name='pet-details-page'),
-    path('<str:username>/pet/<slug:pet_slug>/edit/', views.pet_edit_page, name='pet-edit-page'),
+    path('<str:username>/pet/<slug:pet_slug>/', views.PetDetailsPage.as_view(), name='pet-details-page'),
+    path('<str:username>/pet/<slug:pet_slug>/edit/', views.PetEditPage.as_view(), name='pet-edit-page'),
     path('<str:username>/pet/<slug:pet_slug>/delete/', views.pet_delete_page, name='pet-delete-page'),
 
 )

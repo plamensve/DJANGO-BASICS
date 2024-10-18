@@ -16,7 +16,7 @@
     <div class="edit-delete edit-photo">
         <h2>Edit Pet</h2>
         <!-- Start Edit Pet From -->
-        <form action="">
+        <form method="POST">
            {% csrf_token %}
             {{ form.as_p }}
             <button class="edit-btn" type="submit">Edit</button>
