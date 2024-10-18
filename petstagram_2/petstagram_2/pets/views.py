@@ -35,7 +35,6 @@ def pet_details_page(request, username, pet_slug):
     all_photos = pet.photo_set.all()
     comment_form = CommentForm()
 
-
     context = {
         'pet': pet,
         'all_photos': all_photos,
