@@ -22,7 +22,7 @@ def photo_details_page(request, pk):
     print('see details button is here')
     photo = Photo.objects.get(pk=pk)
     likes = photo.like_set.all()  #TODO : трябва да се коригира заявката
-    comments = photo.comment_set.all()[:1]
+    comments = photo.comment_set.all()
     comment_form = CommentForm()
 
     context = {

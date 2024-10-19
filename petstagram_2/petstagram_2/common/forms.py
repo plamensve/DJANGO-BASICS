@@ -14,3 +14,16 @@ class CommentForm(forms.ModelForm):
                 }
             ),
         }
+
+
+class SearchForm(forms.Form):
+    pet_name = forms.CharField(
+        label='Search by pet name',
+        max_length=100,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Search by pet name...',
+        }),
+
+    )
+

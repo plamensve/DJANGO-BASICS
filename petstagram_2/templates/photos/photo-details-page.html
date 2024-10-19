@@ -61,7 +61,7 @@
                 </div>
 
                 <!-- Start Pet Photo -->
-                <div class="imgBx" id="place the id of the photo here">
+                <div class="imgBx" id="photo-{{ photo.pk }}">
                     <!-- Pet Photo -->
                     <img src="{{ photo.photo.url }}" alt="post" class="cover">
                 </div>
@@ -103,7 +103,6 @@
                     <p class="likes">{{ likes.count }}</p>
 
                     <!-- Start Tagged Pets Section-->
-                   <!-- Start Tagged Pets Section-->
                     {% for pet in photo.tagged_pets.all %}
                     <!-- Link to First Tagged Pet Details Page -->
                     <a href="{% url 'pet-details-page' "username" pet.slug %}">
@@ -111,16 +110,13 @@
                        <b>{{ pet.name }}</b>
                    </p>
                     </a>
-               <!-- End Tagged Pets Section-->
-
-
+                    {% endfor %}
                     <!-- End Tagged Pets Section-->
 
                     <!-- Photo description -->
                     <p class="pet-details">{{ photo.description}}</p>
 
                     <!-- Date of Publication or edit of the Photo -->
-                {% endfor %}
                     <h5 class="postTime">{{ photo.date_of_publication }}</h5>
 
                 {% for comment in comments %}
@@ -150,14 +146,13 @@
                         </div>
                     </div>
                     <!-- End Comments Section -->
-                </div>
-            {% endfor %}
+                {% endfor %}
 
                 <!-- Start Add Comments Section -->
                 <div class="addComments">
 
                      <!-- Start Add Comments Form -->
-                        <form method="post" action="{% url 'comment' 8 %}">
+                        <form method="post" action="{% url 'comment' photo.pk %}">
                             {% csrf_token %}
                             {{ comment_form }}
                             <button type="submit">Post</button>
@@ -172,5 +167,5 @@
 
         </div>
     </div>
-
+</div>
 {% endblock %}
