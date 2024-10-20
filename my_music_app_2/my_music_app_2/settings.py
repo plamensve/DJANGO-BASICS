@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     # My apps
     'my_music_app_2.album',
-    'my_music_app_2.user_profile'
+    'my_music_app_2.user_profile',
+    'my_music_app_2.common',
+
 ]
 
 MIDDLEWARE = [
