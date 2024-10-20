@@ -1,4 +1,4 @@
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 from django.shortcuts import render, redirect, resolve_url
 from django.views.generic import ListView
 from pyperclip import copy
