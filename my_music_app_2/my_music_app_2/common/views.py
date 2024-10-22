@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
+from my_music_app_2.album.models import Album
 from my_music_app_2.mixins import GetProfileObject
 from my_music_app_2.user_profile.models import Profile
 
@@ -18,3 +19,7 @@ class HomePageView(ListView, GetProfileObject):
 
         return [self.template_name_no_profile]
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['albums'] = Album.objects.all()
+        return context
