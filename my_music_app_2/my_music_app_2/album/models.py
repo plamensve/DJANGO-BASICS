@@ -10,15 +10,15 @@ class Album(models.Model):
     GENRE_MAX_LENGTH = 30
     MIN_VALUE_PRICE = 0.0
 
-    GENRE_CHOICES = [
-        ('Pop Music', 'Pop Music'),
-        ('Jazz Music', 'Jazz Music'),
-        ('R&B Music', 'R&B Music'),
-        ('Rock Music', 'Rock Music'),
-        ('Country Music', 'Country Music'),
-        ('Dance Music', 'Dance Music'),
-        ('Hip Hop Music', 'Hip Hop Music'),
-        ('Other', 'Other'),]
+    class GenreChoices(models.TextChoices):
+        POP = 'Pop Music', 'Pop Music'
+        JAZZ = 'Jazz Music', 'Jazz Music'
+        RB = 'R&B Music', 'R&B Music'
+        ROCK = 'Rock Music', 'Rock Music'
+        COUNTRY = 'Country Music', 'Country Music'
+        DANCE = 'Dance Music', 'Dance Music'
+        HIPHOP = 'Hip Hop Music', 'Hip Hop Music'
+        OTHER = 'Other', 'Other'
 
     album_name = models.CharField(
         null=False,
@@ -43,7 +43,7 @@ class Album(models.Model):
         validators=[
             MaxLengthValidator(GENRE_MAX_LENGTH)
         ],
-        choices=GENRE_CHOICES,
+        choices=GenreChoices.choices,
     )
 
     description = models.TextField(
