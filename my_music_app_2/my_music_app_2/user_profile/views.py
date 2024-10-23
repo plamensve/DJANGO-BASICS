@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
-
 from my_music_app_2.album.models import Album
 from my_music_app_2.user_profile.models import Profile
 
