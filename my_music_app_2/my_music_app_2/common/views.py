@@ -5,8 +5,6 @@ from django.views.generic.edit import FormMixin
 
 from my_music_app_2.album.models import Album
 from my_music_app_2.common.forms import CreateProfileForm
-from my_music_app_2.mixins import GetProfileObject
-from my_music_app_2.user_profile.models import Profile
 from my_music_app_2.utils import get_user_obj
 
 
@@ -19,7 +17,7 @@ class HomePageView(FormMixin, ListView):
     template_name_no_profile = 'home-no-profile.html'
 
     def get_template_names(self):
-        profile = get_user_obj()
+        profile = get_user_obj(self.request)
 
         if profile:
             return [self.template_name_with_profile]
@@ -29,13 +27,18 @@ class HomePageView(FormMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['albums'] = Album.objects.all()
-        context['form'] = self.get_form()  # Подаваме формата в контекста
+        context['form'] = self.get_form()
+        context['profile'] = get_user_obj(self.request)
         return context
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
         if form.is_valid():
-            form.save()
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
             return redirect(self.success_url)
         else:
+            self.object_list = self.get_queryset()
             return self.form_invalid(form)
+
