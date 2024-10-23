@@ -19,6 +19,7 @@ class AlbumCreateView(CreateView):
         album.save()
         return super().form_valid(form)
 
+
 # def add_album_page(request):
 #     form = CreateAlbumForm(request.POST or None)
 #
@@ -35,7 +36,6 @@ class AlbumCreateView(CreateView):
 #     return render(request, 'album/album-add.html', context)
 
 
-
 def details_page(request, pk):
     album = Album.objects.get(pk=pk)
 
@@ -46,8 +46,40 @@ def details_page(request, pk):
 
 
 def edit_album_page(request, pk):
-    return render(request, 'album/album-edit.html')
+    album = Album.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        form = CreateAlbumForm(request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect('home-page')
+    else:
+        form = CreateAlbumForm(instance=album)
+
+    context = {
+        'form': form,
+        'album': album,
+    }
+
+    return render(request, 'album/album-edit.html', context)
 
 
 def delete_album(request, pk):
-    return render(request, 'album/album-delete.html')
+    album = Album.objects.get(pk=pk)
+
+    form = CreateAlbumForm(instance=album)
+
+    for field in form.fields.values():
+        field.widget.attrs['disabled'] = 'disabled'
+
+    if request.method == 'POST':
+        album.delete()
+        return redirect('home-page')
+
+    context = {
+        'form': form,
+        'album': album,
+    }
+
+    return render(request, 'album/album-delete.html', context)
+

@@ -25,8 +25,8 @@
 
                 <div class="actionBtn">
                     <!-- Album Buttons -->
-                    <a href="#" class="edit">Edit</a>
-                    <a href="#" class="remove">Delete</a>
+                    <a href="{% url 'edit_album_page' album.pk %}" class="edit">Edit</a>
+                    <a href="{% url 'delete_album_page' album.pk %}" class="remove">Delete</a>
                 </div>
             </div>
         </div>
