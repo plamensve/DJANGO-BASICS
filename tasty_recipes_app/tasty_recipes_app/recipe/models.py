@@ -58,7 +58,7 @@ class Recipe(models.Model):
         Profile,
         on_delete=models.CASCADE,
         related_name='author'
-    )       # TODO: това поле трябва да остане скрито от потребителя и ще го направим във формата, когато я създаваме
+    )
 
     def clean(self):
         if Recipe.objects.filter(title=self.title).exclude(pk=self.pk).exists():

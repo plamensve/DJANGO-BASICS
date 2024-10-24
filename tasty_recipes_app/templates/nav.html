@@ -1,0 +1,14 @@
+{% load menu_tags %}
+<header>
+    <!-- Navigation Bar -->
+    <h1><a class="index-navigation" href="{% url 'home-page' %}">Tasty Recipes</a></h1>
+    <nav>
+        {% if not profile %}
+            <a href="{% url 'create-profile' %}">Create Profile</a>
+        {% else %}
+            <a href="{% url 'catalogue-page' %}">Catalogue</a>
+            <a href="{% url 'recipe_create_page' %}">Create Recipe</a>
+            <a href="{% url 'details-profile' %}">Profile</a>
+        {% endif %}
+    </nav>
+</header>

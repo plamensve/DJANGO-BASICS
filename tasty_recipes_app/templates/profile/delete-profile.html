@@ -1,28 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static '/style/style.css' %}" />
-    <title>TastyRecipesApp</title>
-  </head>
 
-  <body>
-    <div id="box">
-      <header>
-        <!-- Navigation Bar -->
-        <h1><a class="index-navigation" href="#">Tasty Recipes</a></h1>
-        <nav>
-          <!-- if the user has not created a profile -->
-          <a href="#">Create Profile</a>
-
-          <!-- if the user has created a profile -->
-          <a href="#">Catalogue</a>
-          <a href="#">Create Recipe</a>
-          <a href="#">Profile</a>
-        </nav>
-      </header>
 
       <section id="create-page" class="auth">
         <div class="container">
@@ -36,8 +15,4 @@
         <!-- End Delete Profile Form -->
       </section>
 
-      <!-- Footer -->
-      <footer>&copy;SoftUni Team 2024. All rights reserved.</footer>
-    </div>
-  </body>
-</html>
+{% endblock %}
