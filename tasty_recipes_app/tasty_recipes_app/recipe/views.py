@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from tasty_recipes_app.recipe.forms import CreateRecipeFrom
 from tasty_recipes_app.recipe.models import Recipe
@@ -32,12 +32,46 @@ def create_recipe_page(request):
 
 
 def details_recipe_page(request, pk):
-    return render(request, 'recipe/details-recipe.html')
+    recipe = Recipe.objects.get(pk=pk)
+    ingredients = recipe.ingredients.split(', ')
+
+    context = {
+        'recipe': recipe,
+        'ingredients': ingredients
+    }
+    return render(request, 'recipe/details-recipe.html', context)
 
 
 def edit_recipe_page(request, pk):
-    return render(request, 'recipe/edit-recipe.html')
+    recipe = get_object_or_404(Recipe, pk=pk)
+    form = CreateRecipeFrom(request.POST or None, instance=recipe)
+    if form.is_valid():
+        form.save()
+        return redirect('catalogue-page')
+
+    context = {
+        'form': form,
+        'recipe': recipe
+    }
+
+    return render(request, 'recipe/edit-recipe.html', context)
 
 
 def delete_recipe_page(request, pk):
-    return render(request, 'recipe/delete-recipe.html')
+    recipe = get_object_or_404(Recipe, pk=pk)
+    form = CreateRecipeFrom(request.POST or None, instance=recipe)
+
+    for field in form.fields.values():
+        field.widget.attrs['readonly'] = True
+        field.widget.attrs['disabled'] = True
+
+    if request.method == 'POST':
+        recipe.delete()
+        return redirect('catalogue-page')
+
+    context = {
+        'form': form,
+        'recipe': recipe
+    }
+
+    return render(request, 'recipe/delete-recipe.html', context)

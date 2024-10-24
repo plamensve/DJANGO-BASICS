@@ -12,31 +12,42 @@
                 <!-- default profile image -->
                 <!-- if the user is not a chef - a default image - no_chef_img.png -->
                 <!-- if the user is a chef - a default image - chef_img.png -->
-
+                {% if profile_chef %}
                 <img
                         class="recipe-img"
-                        src="/images/chef_img.png"
+                        src="{% static 'images/chef_img.png' %}"
                         alt="profile-image"
                 />
-
+                    {% else %}
+                <img
+                        class="recipe-img"
+                        src="{% static 'images/no_chef_img.png' %}"
+                        alt="profile-image"
+                />        
+                {% endif %}
+            
                 <!-- profile full name -->
-                <h1>Fname Lname</h1>
+                <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
 
                 <!-- profile nickname -->
-                <p class="description">Nickname: testuser</p>
+                <p class="description">Nickname: {{ profile.nick_name }}</p>
 
                 <!-- profile bio -->
                 <!-- if no profile bio - display 'N/A' -->
-
-                <p class="description">Bio: N/A</p>
-
+            
+                {% if profile.bio %}
+                	<p class="description">Bio: {{ profile.bio }}</p>
+                {% else %}
+                    <p class="description">Bio: N/A</p>
+                {% endif %} 
+            
                 <!-- total number of published recipes -->
-                <p class="description">Published recipes: 3</p>
+                <p class="description">Published recipes: {{ recipe_count }}</p>
 
                 <!-- Edit/Delete buttons -->
                 <div class="buttons">
-                    <a href="#" class="edit-button">Edit</a>
-                    <a href="#" class="delete-button">Delete</a>
+                    <a href="{% url 'edit-profile' %}" class="edit-button">Edit</a>
+                    <a href="{% url 'delete-profile' %}" class="delete-button">Delete</a>
                 </div>
             </div>
         </div>

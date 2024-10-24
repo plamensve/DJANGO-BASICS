@@ -30,7 +30,7 @@
                     <h1>{{ recipe.ingredients }}</h1>
                     <div class="details-buttons">
                         <!-- recipe details button -->
-                        <a href="" class="details-btn">Details</a>
+                        <a href="{% url 'recipe_details_page' recipe.pk %}" class="details-btn">Details</a>
                     </div>
                 </div>
             </section>

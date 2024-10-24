@@ -6,59 +6,11 @@
 
     <!-- edit profile form -->
     <section id="register-page" class="content auth">
-        <form id="register" method="POSt">
+        <form id="register" method="POST" action="{% url 'edit-profile' %}">
             <div class="container">
                 <h1>Edit Profile</h1>
-                <div>
-                    <label for="id_nickname">Nickname:</label>
-
-                    <input
-                            type="text"
-                            name="nickname"
-                            value="testuser"
-                            maxlength="20"
-                            required
-                            id="id_nickname"
-                    />
-                </div>
-
-                <div>
-                    <label for="id_first_name">First Name:</label>
-
-                    <input
-                            type="text"
-                            name="first_name"
-                            value="Fname"
-                            maxlength="30"
-                            required
-                            id="id_first_name"
-                    />
-                </div>
-
-                <div>
-                    <label for="id_last_name">Last Name:</label>
-
-                    <input
-                            type="text"
-                            name="last_name"
-                            value="Lname"
-                            maxlength="30"
-                            required
-                            id="id_last_name"
-                    />
-                </div>
-
-                <div>
-                    <label for="id_chef">Chef:</label>
-
-                    <input type="checkbox" name="chef" id="id_chef" checked/>
-                </div>
-
-                <div>
-                    <label for="id_bio">Bio:</label>
-
-                    <textarea name="bio" cols="40" rows="10" id="id_bio"></textarea>
-                </div>
+               {% csrf_token %}
+                {{ form }}
                 <!-- edit button -->
                 <input class="btn" type="submit" value="Edit Profile"/>
             </div>

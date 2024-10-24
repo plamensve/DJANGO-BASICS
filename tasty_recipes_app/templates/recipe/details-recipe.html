@@ -13,47 +13,37 @@
 
                 <img
                         class="recipe-img"
-                        src="https://cdn.pixabay.com/photo/2016/12/27/21/22/salad-1934944_1280.jpg"
+                        src="{{ recipe.image_url }}"
                         alt="recipe image"
                 />
 
                 <!-- recipe title -->
-                <h1>Caprese Salad</h1>
+                <h1>{{ recipe.title }}</h1>
                 <!-- recipe cuisine type -->
-                <p><span class="description-recipe">Cuisine Type: Italian</span></p>
+                <p><span class="description-recipe">Cuisine Type: {{ recipe.cuisine_type }}</span></p>
                 <!-- recipe cooking time -->
-                <p><span class="description-recipe">Cooking Time: 10min.</span></p>
+                <p><span class="description-recipe">Cooking Time: {{ recipe.cooking_time }}.</span></p>
                 <!-- recipe ingredients -->
                 <div class="ingredients">
                     <p><span class="description-recipe">Ingredients:</span></p>
+                    {% for ingredient in ingredients %}
                     <ul>
                         <!-- recipe ingredient -->
-                        <li>Fresh tomatoes</li>
-
-                        <!-- recipe ingredient -->
-                        <li>Fresh mozzarella cheese</li>
-
-                        <!-- recipe ingredient -->
-                        <li>Fresh basil leaves</li>
-
-                        <!-- recipe ingredient -->
-                        <li>Balsamic glaze</li>
+                        <li>{{ ingredient }}</li>
                     </ul>
+                    {% endfor %}
                 </div>
                 <p>
               <span class="description-recipe"
-              >Instructions: Slice the tomatoes and mozzarella cheese into
-                even slices. Arrange the tomato and mozzarella slices on a
-                plate, alternating with basil leaves. Drizzle balsamic glaze
-                over the top. Season with salt and pepper to taste.</span
+              >Instructions: {{ recipe.bio }}</span
               >
                 </p>
             </div>
 
             <!-- Edit/Delete buttons -->
             <div class="buttons">
-                <a href="#" class="edit-button">Edit</a>
-                <a href="#" class="delete-button">Delete</a>
+                <a href="{% url 'edit_recipe_page' recipe.pk %}" class="edit-button">Edit</a>
+                <a href="{% url 'delete_recipe_page' recipe.pk %}" class="delete-button">Delete</a>
             </div>
         </div>
     </section>
