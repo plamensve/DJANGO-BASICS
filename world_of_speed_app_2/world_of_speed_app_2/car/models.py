@@ -47,17 +47,18 @@ class Car(models.Model):
         null=False,
         blank=False,
         unique=True,
-        default="https://...",
         error_messages={
             'unique': "This image URL is already in use! Provide a new one."
         }
     )
 
-    price = models.FloatField(
+    price = models.DecimalField(
         null=False,
         blank=False,
+        decimal_places=3,
+        max_digits=10,
         validators=(
-            MinValueValidator(1.0),
+            MinValueValidator(1.000),
         ),
     )
 
