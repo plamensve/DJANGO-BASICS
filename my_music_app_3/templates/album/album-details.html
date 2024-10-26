@@ -16,7 +16,7 @@
               <h1>Name: {{ album.album_name }}</h1>
               <h3>Artist: {{ album.artist_name }}</h3>
               <h4>Genre: {{ album.genre }}</h4>
-              <h4>Price: ${{ album.price }}</h4>
+              <h4>Price: ${{ album.price|floatformat:2 }}</h4>
               <p>
                 Description: {{ album.description }}
               </p>
