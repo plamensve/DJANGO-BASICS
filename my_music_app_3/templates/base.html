@@ -1,0 +1,25 @@
+{% load static %}
+{% load navigation_tag %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>My Music App</title>
+    <!-- Static Load -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}"/>
+</head>
+
+<body>
+<div id="box">
+    {% show_menu %}
+    {% block content %}
+    {% endblock %}
+    <!-- Footer -->
+    <footer>
+        <div>&copy;SoftUni Team 2024. All rights reserved.</div>
+    </footer>
+    <!-- End Footer -->
+</div>
+</body>
+</html>

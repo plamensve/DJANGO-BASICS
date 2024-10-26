@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>My Music App</title>
-    <!-- Static Load -->
-    <link rel="stylesheet" href="/static/css/style.css" />
-  </head>
-
-  <body>
-    <div id="box">
-      <!-- Navigation Bar -->
-      <header>
-        <nav>
-          <img src="/static/images/headphones.png" alt="headphones" />
-          <a href="#">Home</a>
-          <ul></ul>
-          <ul>
-            <!--Only for user with created profile-->
-            <li><a href="#">Create Album</a></li>
-            <li><a href="#">Profile</a></li>
-          </ul>
-        </nav>
-      </header>
-      <!-- End Navigation Bar -->
+{% extends 'base.html' %}
+{% block content %}
 
       <!-- Main Content -->
       <!--Details Page-->
@@ -30,7 +7,7 @@
         <div class="wrapper">
           <div class="albumCover">
             <!-- Album Image -->
-            <img src="/static/images/Lorde.jpg" alt="Cover Image" />
+            <img src="/images/Lorde.jpg" alt="Cover Image" />
           </div>
 
           <div class="albumInfo">
@@ -56,11 +33,4 @@
         </div>
       </section>
 
-      <!-- Footer -->
-      <footer>
-        <div>&copy;SoftUni Team 2024. All rights reserved.</div>
-      </footer>
-      <!-- End Footer -->
-    </div>
-  </body>
-</html>
+{% endblock %}
