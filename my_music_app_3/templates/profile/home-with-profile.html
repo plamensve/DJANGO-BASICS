@@ -14,7 +14,7 @@
     {% for album in all_albums %}
         <!-- First Card-Box in catalog -->
         <div class="card-box">
-            <img src="{% static '/images/BrandiCarlile.png' %}" alt="Cover Image"/>
+            <img src="{{ album.image_url }}" alt="Cover Image"/>
             <div>
                 <div class="text-center">
                     <p class="name">Name: {{ album.album_name }}</p>
@@ -23,7 +23,7 @@
                     <p class="price">Price: ${{ album.price }}</p>
                 </div>
                 <div class="btn-group">
-                    <a href="{% url 'details_album' %}">Details</a>
+                    <a href="{% url 'details_album' album.pk %}">Details</a>
                 </div>
             </div>
         </div>
