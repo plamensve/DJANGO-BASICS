@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles/styles.css" />
+    <title>FurryFunnies</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <!-- Navigation -->
+
+        <!-- Logo image: a link to index/home page -->
+        <a id="logo" href="#">
+          <img id="logo-img" src="/static/images/logo.png" alt="logo" />
+        </a>
+
+        <nav>
+          <!-- If there is an author's profile -->
+          <div class="user">
+            <a href="#">Dashboard</a>
+            <a href="#">New Post</a>
+            <a href="#">Author's Profile</a>
+          </div>
+
+          <!-- If author's profile has NOT been created -->
+          <div class="guest">
+            <a href="#">Create Author's Profile</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Dashboard page -->
+
+        <!-- Display a heading if there are posts -->
+        <h2>Published Posts</h2>
+
+        <!-- Display a heading if there are NO posts -->
+        <h2>No published posts yet.</h2>
+
+        <section id="dashboard">
+          <!-- Display a div with information about each post (if any) -->
+
+          <!-- first post -->
+          <div class="post">
+            <!-- post image -->
+            <img
+              src="https://cdn.pixabay.com/photo/2017/03/26/00/56/rabbit-2174679_1280.jpg"
+              alt="My cool fluffy rabbits img"
+            />
+            <!-- post title -->
+            <h3 class="title">My cool fluffy rabbits</h3>
+            <!-- post content -->
+            <p class="description">Adorable!</p>
+            <!-- post details button -->
+            <a class="details-btn" href="#">See More</a>
+          </div>
+
+          <!-- second post -->
+          <div class="post">
+            <!-- post image -->
+            <img
+              src="https://cdn.pixabay.com/photo/2024/03/04/18/39/ai-generated-8612899_1280.jpg"
+              alt="My brash cat! img"
+            />
+            <!-- post title -->
+            <h3 class="title">My brash cat!</h3>
+            <!-- post content -->
+            <p class="description">My funny cat!</p>
+            <!-- post details button -->
+            <a class="details-btn" href="#">See More</a>
+          </div>
+
+          <!-- third post -->
+          <div class="post">
+            <!-- post image -->
+            <img
+              src="https://cdn.pixabay.com/photo/2024/04/05/19/04/ai-generated-8678034_1280.jpg"
+              alt="My clever dog :) img"
+            />
+            <!-- post title -->
+            <h3 class="title">My clever dog :)</h3>
+            <!-- post content -->
+            <p class="description">Einstein is the …</p>
+            <!-- post details button -->
+            <a class="details-btn" href="#">See More</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 FurryFunnies by SoftUni Team. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

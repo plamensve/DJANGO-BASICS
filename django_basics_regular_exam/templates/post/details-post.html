@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>FurryFunnies</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <!-- Navigation -->
+
+        <!-- Logo image: a link to index/home page -->
+        <a id="logo" href="#">
+          <img id="logo-img" src="/images/logo.png" alt="logo" />
+        </a>
+
+        <nav>
+          <!-- If there is an author's profile -->
+          <div class="user">
+            <a href="#">Dashboard</a>
+            <a href="#">New Post</a>
+            <a href="#">Author's Profile</a>
+          </div>
+
+          <!-- If author's profile has NOT been created -->
+          <div class="guest">
+            <a href="#">Create Author's Profile</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Post Details -->
+        <section id="details">
+          <div id="details-wrapper">
+            <h2>Post Details</h2>
+            <!-- post image -->
+            <img
+              id="details-img"
+              src="https://cdn.pixabay.com/photo/2024/04/05/19/04/ai-generated-8678034_1280.jpg"
+              alt="My clever dog :)"
+            />
+            <!-- post title -->
+            <p id="details-title">My clever dog :)</p>
+            <div id="info-wrapper">
+              <div id="details-description">
+                <!-- post content -->
+                <p>Einstein is the smartest dog ever!!!</p>
+              </div>
+
+              <!--Edit and Delete buttons -->
+              <div id="action-buttons">
+                <a href="#" id="edit-btn">Edit</a>
+                <a href="#" id="delete-btn">Delete</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 FurryFunnies by SoftUni Team. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

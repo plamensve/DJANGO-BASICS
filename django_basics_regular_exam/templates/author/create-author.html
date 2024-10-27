@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>FurryFunnies</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <!-- Navigation -->
+
+        <!-- Logo image: a link to index/home page -->
+        <a id="logo" href="#">
+          <img id="logo-img" src="/images/logo.png" alt="logo" />
+        </a>
+
+        <nav>
+          <!-- If there is an author's profile -->
+          <div class="user">
+            <a href="#">Dashboard</a>
+            <a href="#">New Post</a>
+            <a href="#">Author's Profile</a>
+          </div>
+
+          <!-- If author's profile has NOT been created -->
+          <div class="guest">
+            <a href="#">Create Author's Profile</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Create Author's Profile Form (Only if no author's profile has been created) -->
+        <section id="register">
+          <div class="form">
+            <h2>Create Author's Profile</h2>
+
+            <form class="register-form" method="" action="">
+              <div>
+                <label for="id_first_name">First Name:</label>
+
+                <input
+                  type="text"
+                  name="first_name"
+                  maxlength="40"
+                  placeholder="Enter your first name..."
+                  required
+                  id="id_first_name"
+                />
+              </div>
+
+              <div>
+                <label for="id_last_name">Last Name:</label>
+
+                <input
+                  type="text"
+                  name="last_name"
+                  maxlength="50"
+                  placeholder="Enter your last name..."
+                  required
+                  id="id_last_name"
+                />
+              </div>
+
+              <div>
+                <label for="id_passcode">Passcode:</label>
+
+                <div class="helptext" id="id_passcode_helptext">
+                  Your passcode must be a combination of 6 digits
+                </div>
+
+                <input
+                  type="password"
+                  name="passcode"
+                  maxlength="6"
+                  placeholder="Enter 6 digits..."
+                  required
+                  aria-describedby="id_passcode_helptext"
+                  id="id_passcode"
+                />
+              </div>
+
+              <div>
+                <label for="id_pets_number">Pets Number:</label>
+
+                <input
+                  type="number"
+                  name="pets_number"
+                  min="0"
+                  placeholder="Enter the number of your pets..."
+                  required
+                  id="id_pets_number"
+                />
+              </div>
+
+              <!-- form button -->
+              <button type="submit">Create</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 FurryFunnies by SoftUni Team. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

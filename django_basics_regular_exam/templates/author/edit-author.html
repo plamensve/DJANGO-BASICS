@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>FurryFunnies</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <!-- Navigation -->
+
+        <!-- Logo image: a link to index/home page -->
+        <a id="logo" href="#">
+          <img id="logo-img" src="/images/logo.png" alt="logo" />
+        </a>
+
+        <nav>
+          <!-- If there is an author's profile -->
+          <div class="user">
+            <a href="#">Dashboard</a>
+            <a href="#">New Post</a>
+            <a href="#">Author's Profile</a>
+          </div>
+
+          <!-- If author's profile has NOT been created -->
+          <div class="guest">
+            <a href="#">Create Author's Profile</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Edit Author's Profile Form -->
+
+        <section id="register">
+          <div class="form">
+            <h2>Edit Author's Profile</h2>
+
+            <form class="register-form" method="" action="">
+              <div>
+                <label for="id_first_name">First Name:</label>
+
+                <input
+                  type="text"
+                  name="first_name"
+                  value="Test"
+                  maxlength="40"
+                  required
+                  id="id_first_name"
+                />
+              </div>
+
+              <div>
+                <label for="id_last_name">Last Name:</label>
+
+                <input
+                  type="text"
+                  name="last_name"
+                  value="User"
+                  maxlength="50"
+                  required
+                  id="id_last_name"
+                />
+              </div>
+
+              <div>
+                <label for="id_pets_number">Pets Number:</label>
+
+                <input
+                  type="number"
+                  name="pets_number"
+                  value="4"
+                  min="0"
+                  required
+                  id="id_pets_number"
+                />
+              </div>
+
+              <div>
+                <label for="id_info">Info:</label>
+
+                <textarea name="info" cols="40" rows="10" id="id_info">
+Some funny info of me and all my pets</textarea
+                >
+              </div>
+
+              <div>
+                <label for="id_image_url">Profile Image URL:</label>
+
+                <input
+                  type="url"
+                  name="image_url"
+                  value="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295395_1280.png"
+                  maxlength="200"
+                  id="id_image_url"
+                />
+              </div>
+              <!-- form button -->
+              <button type="submit">Edit</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 FurryFunnies by SoftUni Team. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
