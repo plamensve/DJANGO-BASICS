@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>My Music App</title>
-    <!-- Static Load -->
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-
-  <body>
-    <div id="box">
-      <!-- Navigation Bar -->
-      <header>
-        <nav>
-          <img src="/images/headphones.png" alt="headphones" />
-          <a href="#">Home</a>
-          <ul></ul>
-          <ul>
-            <!--Only for user with created profile-->
-            <li><a href="#">Create Album</a></li>
-            <li><a href="#">Profile</a></li>
-          </ul>
-        </nav>
-      </header>
-      <!-- End Navigation Bar -->
+{% extends 'base.html' %}
+{% block content %}
 
       <!-- Main Content -->
       <!-- Catalog with Albums-->
@@ -51,7 +28,7 @@
 
         <!-- Second Card-Box in catalog -->
         <div class="card-box">
-          <img src="/images/pinkFloyd.jpg" />
+          <img src="/images/pinkFloyd.jpg"  alt=""/>
           <div>
             <div class="text-center">
               <p class="name">Name: The Dark Side of the Moon</p>
@@ -84,11 +61,4 @@
         <!-- End Third Card-Box in catalog -->
       </section>
 
-      <!-- Footer -->
-      <footer>
-        <div>&copy;SoftUni Team 2024. All rights reserved.</div>
-      </footer>
-      <!-- End Footer -->
-    </div>
-  </body>
-</html>
+{% endblock %}

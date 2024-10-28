@@ -1,7 +1,6 @@
 from django.urls import path
-
-from my_music_app_with_cbv.web import views
+from my_music_app_with_cbv.web.views import HomePageView
 
 urlpatterns = (
-    path('', views.home_page, name='home-page'),
+    path('', HomePageView.as_view(), name='home-page'),
 )
