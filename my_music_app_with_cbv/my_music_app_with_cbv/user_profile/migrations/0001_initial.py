@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='Profile',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('username', models.CharField(max_length=15, validators=[django.core.validators.MinLengthValidator(2), my_music_app_with_cbv.user_profile.validators.username_validator_symbols])),
+                ('username', models.CharField(max_length=15, validators=[django.core.validators.MinLengthValidator(2), my_music_app_with_cbv.user_profile.validators.AlphaNumericValidator()])),
                 ('email', models.EmailField(max_length=254)),
                 ('age', models.PositiveIntegerField(blank=True, null=True)),
             ],
