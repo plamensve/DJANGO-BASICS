@@ -40,7 +40,7 @@ class Post(models.Model):
         on_delete=models.CASCADE,
     )
 
-    # TODO: Трябва да тествам тази валидация
+
     def clean(self):
         if Post.objects.filter(title=self.title).exclude(id=self.id).exists():
             raise ValidationError("Oops! That title is already taken. How about something fresh and fun?")

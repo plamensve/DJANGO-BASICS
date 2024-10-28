@@ -30,7 +30,6 @@ class Author(models.Model):
         ]
     )
 
-    #TODO: Should be password input
     passcode = models.CharField(
         null=False,
         blank=False,

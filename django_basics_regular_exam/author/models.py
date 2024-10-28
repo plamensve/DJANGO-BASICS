@@ -1,7 +1,8 @@
+from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
 from django.db import models
 
-from django_basics_regular_exam.author.validators import author_letters_validator, six_digit_validator
+from author.validators import author_letters_validator, six_digit_validator
 
 
 class Author(models.Model):
@@ -30,7 +31,6 @@ class Author(models.Model):
         ]
     )
 
-    #TODO: Should be password input
     passcode = models.CharField(
         null=False,
         blank=False,

@@ -7,5 +7,6 @@ def author_letters_validator(author):
 
 
 def six_digit_validator(value):
-    if not len(value) == 6:
-        raise ValidationError("Your passcode must be exactly 6 digits!")
+    if len(value) != 6 or not value.isdigit():
+        raise ValidationError("Your passcode must be a combination of exactly 6 digits!")
+
